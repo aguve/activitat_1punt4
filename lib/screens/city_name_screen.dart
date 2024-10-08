@@ -1,4 +1,5 @@
 // city_name_screen.dart
+import 'package:activitat_1punt4/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:activitat_1punt4/models/postal_code_info.dart';
 import 'package:activitat_1punt4/services/city_postal_code_service.dart';
@@ -67,26 +68,21 @@ class _CityNameScreenState extends State<CityNameScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('On Cau?'),
+        title: Text(
+          'On Cau?',
+          style: AppStyles.screenSubTitle,
+        ),
         centerTitle: true,
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Text(
-                'Codis postals d\'un municipi\n',
-                style: TextStyle(
-                  fontSize: 25,
-                ),
-              ),
-              const Text(
-                'Llista codis postals\n',
-                style: TextStyle(
-                  fontSize: 19,
-                ),
+              Text(
+                '\nCodis postals d\'un municipi\n',
+                style: AppStyles.screenTitle,
               ),
               TextField(
                 decoration: const InputDecoration(
@@ -173,7 +169,10 @@ class _CityNameScreenState extends State<CityNameScreen> {
                     _buscarCodigosPostales(comaut, _municipi);
                   }
                 },
-                child: const Text('Cerca Codis Postals'),
+                child: Text(
+                  'Cerca Codis Postals',
+                  style: AppStyles.buttonsText,
+                ),
               ),
               const SizedBox(height: 20),
               if (_isLoading)

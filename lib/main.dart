@@ -1,4 +1,5 @@
 import 'package:activitat_1punt4/screens/postal_code_screen.dart';
+import 'package:activitat_1punt4/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +13,7 @@ class PostalApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'On Cau?',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: AppStyles.themeData,
       home: const PostalCodeScreen(),
     );
   }

@@ -2,6 +2,7 @@
 import 'package:activitat_1punt4/models/location_data.dart';
 import 'package:activitat_1punt4/screens/city_name_screen.dart';
 import 'package:activitat_1punt4/services/postal_code_service.dart';
+import 'package:activitat_1punt4/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -68,7 +69,10 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('On Cau?'),
+        title: Text(
+          'On Cau?',
+          style: AppStyles.screenSubTitle,
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -76,9 +80,9 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Cerca un municipi\n',
-              style: TextStyle(fontSize: 19),
+            Text(
+              '\nCerca un municipi\n',
+              style: AppStyles.screenTitle,
             ),
             TextField(
               controller: _postalCodeController,
@@ -94,7 +98,10 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
               children: [
                 ElevatedButton(
                   onPressed: _fetchCityName,
-                  child: const Text('Cerca un municipi'),
+                  child: Text(
+                    'Cerca un municipi',
+                    style: AppStyles.buttonsText,
+                  ),
                 ),
                 const SizedBox(width: 10),
                 if (_locationData != null)
@@ -103,7 +110,10 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
                             _locationData?.longitude != null
                         ? _openMaps
                         : null,
-                    child: const Text('Veure a\nGoogle Maps'),
+                    child: Text(
+                      'Google Maps',
+                      style: AppStyles.buttonsText,
+                    ),
                   ),
               ],
             ),
@@ -113,10 +123,11 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
               Text(_errorMessage!, style: const TextStyle(color: Colors.red)),
             if (_locationData != null)
               Text(
-                'Municipi: ${_locationData?.placeName}'
-                '\nLatitud: ${_locationData?.latitude}'
-                '\nLongitud: ${_locationData?.longitude}',
-                style: const TextStyle(fontSize: 20),
+                'Municipi: ${_locationData?.placeName}\n'
+                /* '\nLatitud: ${_locationData?.latitude}'
+                '\nLongitud: ${_locationData?.longitude}' */
+                ,
+                style: AppStyles.otherText,
               ),
             const SizedBox(height: 24),
             ElevatedButton(
@@ -128,7 +139,10 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
                   ),
                 );
               },
-              child: const Text('Cerca per municipi'),
+              child: Text(
+                'Cerca per municipi',
+                style: AppStyles.buttonsText,
+              ),
             ),
           ],
         ),
