@@ -161,9 +161,9 @@ class _CityNameScreenState extends State<CityNameScreen> {
                   if (_municipi.isNotEmpty && _ccaa.isNotEmpty) {
                     setState(() {
                       _codisPostals
-                          .clear(); // Vaciar la lista de resultados anteriores
-                      _isLoading = true; // Mostrar el indicador de carga
-                      _error = null; // Reiniciar errores
+                          .clear(); // Buida la llista dels resultats anteriors
+                      _isLoading = true; // Mostra l'indicaor de càrrega
+                      _error = null; // Reinicia errors
                     });
                     var comaut = '';
                     switch (_ccaa) {

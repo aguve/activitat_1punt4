@@ -21,7 +21,7 @@ class AppStyles {
   );
 
   static TextStyle otherText = TextStyle(
-    fontSize: 18,
+    fontSize: 30,
     color: const Color.fromARGB(171, 0, 0, 0),
     fontFamily: GoogleFonts.notoSans().fontFamily,
   );
@@ -35,6 +35,7 @@ class AppStyles {
   static AppBarTheme appBarTheme = AppBarTheme(
     backgroundColor: const Color.fromARGB(255, 106, 100, 194),
     foregroundColor: const Color.fromARGB(221, 184, 180, 180),
+    toolbarTextStyle: TextStyle(color: Colors.white),
     centerTitle: true,
     titleTextStyle: screenSubTitle,
   );
