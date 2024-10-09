@@ -104,14 +104,6 @@ class _CityNameScreenState extends State<CityNameScreen> {
                 '\nCodis postals d\'un municipi\n',
                 style: AppStyles.screenTitle,
               ),
-              /* TextField(
-                decoration: const InputDecoration(
-                  labelText: 'Escriu el nom del municipi',
-                ),
-                onChanged: (value) {
-                  _municipi = value;
-                },
-              ), */
               Autocomplete<String>(
                 optionsBuilder: (TextEditingValue textEditingValue) {
                   if (textEditingValue.text.isEmpty) {

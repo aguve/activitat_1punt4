@@ -26,6 +26,12 @@ class AppStyles {
     fontFamily: GoogleFonts.notoSans().fontFamily,
   );
 
+  static TextStyle errorMsg = TextStyle(
+    fontSize: 22,
+    color: Colors.red,
+    fontFamily: GoogleFonts.notoSans().fontFamily,
+  );
+
   static AppBarTheme appBarTheme = AppBarTheme(
     backgroundColor: const Color.fromARGB(255, 106, 100, 194),
     foregroundColor: const Color.fromARGB(221, 184, 180, 180),

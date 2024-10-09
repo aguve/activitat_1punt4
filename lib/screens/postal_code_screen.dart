@@ -120,7 +120,7 @@ class _PostalCodeScreenState extends State<PostalCodeScreen> {
             const SizedBox(height: 24),
             if (_loading) const CircularProgressIndicator(),
             if (_errorMessage != null)
-              Text(_errorMessage!, style: const TextStyle(color: Colors.red)),
+              Text(_errorMessage!, style: AppStyles.errorMsg),
             if (_locationData != null)
               Text(
                 'Municipi: ${_locationData?.placeName}\n'
