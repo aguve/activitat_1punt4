@@ -234,7 +234,7 @@ class _CityNameScreenState extends State<CityNameScreen> {
                 Center(
                   child: Text(
                     _error!,
-                    style: const TextStyle(color: Colors.red),
+                    style: AppStyles.errorMsg,
                   ),
                 )
               else
@@ -242,7 +242,7 @@ class _CityNameScreenState extends State<CityNameScreen> {
                   child: ListView.builder(
                     itemCount: _codisPostals.length,
                     itemBuilder: (context, index) {
-                      return zipCodeTile(_codisPostals[index].postCode);
+                      return ZipCodeTile(_codisPostals[index].postCode);
                     },
                   ),
                 ),

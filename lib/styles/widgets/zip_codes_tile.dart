@@ -2,7 +2,8 @@ import 'package:activitat_1punt4/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
 //  Definició de les targetes que es fan servir per mostrar els codis postals
-Widget zipCodeTile(String zipCode) {
+// ignore: non_constant_identifier_names
+Widget ZipCodeTile(String zipCode) {
   return Card(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10),
