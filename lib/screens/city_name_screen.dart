@@ -20,6 +20,26 @@ class _CityNameScreenState extends State<CityNameScreen> {
   String? _error;
   final CityPostalCodeService _postalCodeService = CityPostalCodeService();
 
+  // Llista de municipis suggerits
+  final List<String> _municipisList = [
+    'Torredembarra',
+    'Calella',
+    'Barcelona',
+    'La Conca de Barberà',
+    'El Masnou',
+    'Riells',
+    'Blanes',
+    'Tarragona',
+    'Lleida',
+    'Girona',
+    'Cantonigròs',
+    'Olesa de Montserrat',
+    'Olot',
+    'Manlleu',
+    'Miengo',
+    'Mogro',
+  ];
+
   // Funció que retorna els codis postals assossiats a un municipi donat
   Future<void> _buscarCodigosPostales(String sccaa, String municipi) async {
     setState(() {
@@ -84,12 +104,41 @@ class _CityNameScreenState extends State<CityNameScreen> {
                 '\nCodis postals d\'un municipi\n',
                 style: AppStyles.screenTitle,
               ),
-              TextField(
+              /* TextField(
                 decoration: const InputDecoration(
                   labelText: 'Escriu el nom del municipi',
                 ),
                 onChanged: (value) {
                   _municipi = value;
+                },
+              ), */
+              Autocomplete<String>(
+                optionsBuilder: (TextEditingValue textEditingValue) {
+                  if (textEditingValue.text.isEmpty) {
+                    return const Iterable<String>.empty();
+                  }
+                  return _municipisList.where((String option) {
+                    return option
+                        .toLowerCase()
+                        .contains(textEditingValue.text.toLowerCase());
+                  });
+                },
+                onSelected: (String selection) {
+                  setState(() {
+                    _municipi = selection;
+                  });
+                },
+                fieldViewBuilder: (BuildContext context,
+                    TextEditingController textEditingController,
+                    FocusNode focusNode,
+                    VoidCallback onFieldSubmitted) {
+                  return TextField(
+                    controller: textEditingController,
+                    focusNode: focusNode,
+                    decoration: const InputDecoration(
+                      labelText: 'Escriu el nom del municipi',
+                    ),
+                  );
                 },
               ),
               const SizedBox(height: 20),
