@@ -1,5 +1,6 @@
 // city_name_screen.dart
 import 'package:activitat_1punt4/styles/app_styles.dart';
+import 'package:activitat_1punt4/styles/widgets/zip_codes_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:activitat_1punt4/models/postal_code_info.dart';
 import 'package:activitat_1punt4/services/city_postal_code_service.dart';
@@ -130,6 +131,11 @@ class _CityNameScreenState extends State<CityNameScreen> {
                     decoration: const InputDecoration(
                       labelText: 'Escriu el nom del municipi',
                     ),
+                    onChanged: (String value) {
+                      setState(() {
+                        _municipi = value;
+                      });
+                    },
                   );
                 },
               ),
@@ -153,6 +159,12 @@ class _CityNameScreenState extends State<CityNameScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_municipi.isNotEmpty && _ccaa.isNotEmpty) {
+                    setState(() {
+                      _codisPostals
+                          .clear(); // Vaciar la lista de resultados anteriores
+                      _isLoading = true; // Mostrar el indicador de carga
+                      _error = null; // Reiniciar errores
+                    });
                     var comaut = '';
                     switch (_ccaa) {
                       case 'Andalusia':
@@ -230,9 +242,7 @@ class _CityNameScreenState extends State<CityNameScreen> {
                   child: ListView.builder(
                     itemCount: _codisPostals.length,
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(_codisPostals[index].postCode),
-                      );
+                      return zipCodeTile(_codisPostals[index].postCode);
                     },
                   ),
                 ),

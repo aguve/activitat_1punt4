@@ -42,4 +42,10 @@ class AppStyles {
   static ThemeData themeData = ThemeData(
       appBarTheme: appBarTheme,
       scaffoldBackgroundColor: const Color.fromARGB(255, 217, 230, 238));
+
+  static TextStyle zipCode = TextStyle(
+    color: const Color.fromARGB(255, 34, 107, 36),
+    fontSize: 20,
+    fontFamily: GoogleFonts.notoSans().fontFamily,
+  );
 }
